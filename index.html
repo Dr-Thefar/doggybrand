@@ -296,41 +296,81 @@
       .grid{grid-template-columns: 1fr}
       .menu{display:none}
     }
-  <style>
+<style>
   :root{
-    --gold: #D4A017;
-    --gold-dark: #B88905;
-    --gold-light: #F0D97E;
+    --gold: #D4A017;                 /* премиальный золотой */
+    --gold-soft: rgba(212,160,23,.35);/* тонкая линия/акцент */
     --text: #111;
+    --radius: 18px;
   }
 
-  /* ссылки / меню */
+  /* ========== 1) МИКРО-АНИМАЦИИ КНОПОК ========== */
+  button, .btn, .button, a.btn, a.button{
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    will-change: transform;
+    border-radius: var(--radius);
+  }
+  button:hover, .btn:hover, .button:hover, a.btn:hover, a.button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0,0,0,.14);
+  }
+  button:active, .btn:active, .button:active, a.btn:active, a.button:active{
+    transform: translateY(0px) scale(.98);
+    box-shadow: 0 8px 18px rgba(0,0,0,.10);
+  }
+
+  /* ========== 2) БОЛЬШЕ ВОЗДУХА МЕЖДУ БЛОКАМИ ========== */
+  /* универсально для секций */
+  section{
+    padding: clamp(42px, 6vw, 90px) 0;
+  }
+
+  /* если у тебя есть контейнеры/блоки - добавим аккуратный gap */
+  .container, .wrapper, main{
+    padding-left: clamp(16px, 4vw, 56px);
+    padding-right: clamp(16px, 4vw, 56px);
+  }
+
+  /* красивые вертикальные расстояния между элементами в блоках */
+  .stack > * + *{
+    margin-top: 14px;
+  }
+
+  /* ========== 3) ТОНКИЙ ЗОЛОТОЙ АКЦЕНТ (без «цыганщины») ========== */
+
+  /* тонкая линия под заголовками */
+  h1, h2{
+    position: relative;
+  }
+  h1::after, h2::after{
+    content:"";
+    display:block;
+    width: 56px;
+    height: 2px;
+    margin-top: 12px;
+    background: linear-gradient(90deg, var(--gold-soft), rgba(212,160,23,.0));
+  }
+
+  /* деликатный золотой акцент на hover для ссылок */
   a{
-    text-decoration-color: rgba(212,160,23,.35);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+    text-decoration-color: rgba(212,160,23,.15);
+    transition: color .18s ease, text-decoration-color .18s ease;
   }
   a:hover{
     color: var(--gold);
-    text-decoration-color: rgba(212,160,23,.8);
+    text-decoration-color: rgba(212,160,23,.55);
   }
 
-  /* кнопки (подхватит любые button и ссылки-кнопки) */
-  button, .btn, .button, a.btn, a.button{
-    border: 1px solid rgba(184,137,5,.55) !important;
-    background: linear-gradient(90deg, rgba(240,217,126,.95), rgba(212,160,23,.95)) !important;
-    color: var(--text) !important;
-    box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  /* опционально: тонкая золотая рамка для “премиум” карточек */
+  .card, .product-card{
+    border-radius: var(--radius);
   }
-  button:hover, .btn:hover, .button:hover, a.btn:hover, a.button:hover{
-    filter: brightness(1.05);
-    box-shadow: 0 14px 30px rgba(0,0,0,.16);
-  }
-
-  /* тонкие премиум-разделители/акценты */
-  hr, .divider, .line{
-    border-color: rgba(212,160,23,.35) !important;
+  .card.premium, .product-card.premium{
+    border: 1px solid rgba(212,160,23,.22);
   }
 </style>
-
 </head>
 
 <body>
@@ -369,6 +409,12 @@
       </div>
     </div>
   </section>
+  <div class="stack">
+    <h2>Коллекция</h2>
+    <p>Описание бренда</p>
+    <a class="btn" href="#">Каталог</a>
+  </div>
+</section>
 
   <section id="collection">
     <div class="secHead">
