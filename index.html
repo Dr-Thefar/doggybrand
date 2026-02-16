@@ -24,6 +24,13 @@
       --max: 1160px;
       --serif: "Cormorant Garamond", serif;
       --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      /* GOLD SYSTEM */
+      --gold: #D4A017;
+      --goldDark: #B88905;
+      --goldLight: #F0D97E;
+      --goldSoft: rgba(212,160,23,.28);
+      --radius: 18px;
     }
 
     *{box-sizing:border-box}
@@ -38,6 +45,19 @@
     }
 
     a{color:inherit;text-decoration:none}
+
+    /* тонкая золотая типографика для ссылок (минимально) */
+    a{
+      text-decoration-thickness: 1px;
+      text-underline-offset: 6px;
+      text-decoration-color: rgba(212,160,23,.14);
+      transition: color .18s ease, text-decoration-color .18s ease;
+    }
+    a:hover{
+      color: var(--gold);
+      text-decoration-color: rgba(212,160,23,.55);
+    }
+
     .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
 
     /* Topbar */
@@ -72,8 +92,11 @@
       padding:10px 10px;
       border-radius:999px;
       transition: background .2s ease, color .2s ease;
+      text-decoration: none;
     }
     .menu a:hover{background: rgba(27,22,19,.06); color: rgba(27,22,19,.90)}
+
+    /* базовая кнопка */
     .btn{
       border:1px solid rgba(246,241,234,.55);
       background: rgba(27,22,19,.75);
@@ -83,10 +106,38 @@
       font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
-      transition: transform .18s ease, background .18s ease;
       white-space:nowrap;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+
+      /* микро-анимации */
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, background .18s ease;
+      will-change: transform;
+      text-decoration:none;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(27,22,19,.85)}
+    .btn:hover{
+      transform: translateY(-2px);
+      background: rgba(27,22,19,.85);
+      box-shadow: 0 14px 30px rgba(0,0,0,.14);
+    }
+    .btn:active{
+      transform: translateY(0) scale(.98);
+      box-shadow: 0 8px 18px rgba(0,0,0,.10);
+    }
+
+    /* ПРЕМИАЛЬНАЯ ЗОЛОТАЯ КНОПКА (по классу, ничего не ломает) */
+    .btn-gold{
+      background: linear-gradient(90deg, rgba(240,217,126,.96), rgba(212,160,23,.96));
+      color: #111 !important;
+      border: 1px solid rgba(184,137,5,.7) !important;
+      box-shadow: 0 12px 26px rgba(0,0,0,.20);
+    }
+    .btn-gold:hover{
+      filter: brightness(1.03);
+      box-shadow: 0 16px 34px rgba(0,0,0,.24);
+    }
 
     /* Hero */
     .hero{
@@ -182,6 +233,8 @@
       justify-content:center;
       margin-top: 22px;
     }
+
+    /* прозрачная кнопка в hero */
     .ghost{
       border: 1px solid rgba(246,241,234,.55);
       background: rgba(246,241,234,.10);
@@ -192,12 +245,42 @@
       letter-spacing: .18em;
       text-transform: uppercase;
       backdrop-filter: blur(10px);
-      transition: transform .18s ease, background .18s ease;
-    }
-    .ghost:hover{transform: translateY(-1px); background: rgba(246,241,234,.16)}
 
-    /* Sections */
-    section{padding: 44px 0}
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, background .18s ease;
+      will-change: transform;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .ghost:hover{
+      transform: translateY(-2px);
+      background: rgba(246,241,234,.16);
+      box-shadow: 0 14px 30px rgba(0,0,0,.18);
+    }
+    .ghost:active{
+      transform: translateY(0) scale(.99);
+      box-shadow: 0 8px 18px rgba(0,0,0,.12);
+    }
+
+    /* Sections — больше воздуха */
+    section{padding: clamp(42px, 6vw, 90px) 0}
+
+    /* секционный заголовок с тонким золотым акцентом */
+    .h2, .title, .dy{
+      position: relative;
+    }
+    /* Акцент делаем только на секционные заголовки, чтобы не портить hero */
+    .h2::after{
+      content:"";
+      display:block;
+      width:56px;
+      height:2px;
+      margin-top:12px;
+      background: linear-gradient(90deg, var(--goldSoft), rgba(212,160,23,0));
+    }
+
     .secHead{
       display:flex; align-items:end; justify-content:space-between; gap:18px;
       margin-bottom: 14px;
@@ -296,81 +379,7 @@
       .grid{grid-template-columns: 1fr}
       .menu{display:none}
     }
-<style>
-  :root{
-    --gold: #D4A017;                 /* премиальный золотой */
-    --gold-soft: rgba(212,160,23,.35);/* тонкая линия/акцент */
-    --text: #111;
-    --radius: 18px;
-  }
-
-  /* ========== 1) МИКРО-АНИМАЦИИ КНОПОК ========== */
-  button, .btn, .button, a.btn, a.button{
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    will-change: transform;
-    border-radius: var(--radius);
-  }
-  button:hover, .btn:hover, .button:hover, a.btn:hover, a.button:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 14px 30px rgba(0,0,0,.14);
-  }
-  button:active, .btn:active, .button:active, a.btn:active, a.button:active{
-    transform: translateY(0px) scale(.98);
-    box-shadow: 0 8px 18px rgba(0,0,0,.10);
-  }
-
-  /* ========== 2) БОЛЬШЕ ВОЗДУХА МЕЖДУ БЛОКАМИ ========== */
-  /* универсально для секций */
-  section{
-    padding: clamp(42px, 6vw, 90px) 0;
-  }
-
-  /* если у тебя есть контейнеры/блоки - добавим аккуратный gap */
-  .container, .wrapper, main{
-    padding-left: clamp(16px, 4vw, 56px);
-    padding-right: clamp(16px, 4vw, 56px);
-  }
-
-  /* красивые вертикальные расстояния между элементами в блоках */
-  .stack > * + *{
-    margin-top: 14px;
-  }
-
-  /* ========== 3) ТОНКИЙ ЗОЛОТОЙ АКЦЕНТ (без «цыганщины») ========== */
-
-  /* тонкая линия под заголовками */
-  h1, h2{
-    position: relative;
-  }
-  h1::after, h2::after{
-    content:"";
-    display:block;
-    width: 56px;
-    height: 2px;
-    margin-top: 12px;
-    background: linear-gradient(90deg, var(--gold-soft), rgba(212,160,23,.0));
-  }
-
-  /* деликатный золотой акцент на hover для ссылок */
-  a{
-    text-decoration-thickness: 1px;
-    text-underline-offset: 6px;
-    text-decoration-color: rgba(212,160,23,.15);
-    transition: color .18s ease, text-decoration-color .18s ease;
-  }
-  a:hover{
-    color: var(--gold);
-    text-decoration-color: rgba(212,160,23,.55);
-  }
-
-  /* опционально: тонкая золотая рамка для “премиум” карточек */
-  .card, .product-card{
-    border-radius: var(--radius);
-  }
-  .card.premium, .product-card.premium{
-    border: 1px solid rgba(212,160,23,.22);
-  }
-</style>
+  </style>
 </head>
 
 <body>
@@ -382,7 +391,8 @@
       <a href="#about">О бренде</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a class="btn" href="#contacts">Заказать</a>
+    <!-- Золотая кнопка в шапке -->
+    <a class="btn btn-gold" href="#contacts">Заказать</a>
   </div>
 </header>
 
@@ -398,8 +408,13 @@
         <p class="subtitle">FOR HER & HER DOG</p>
 
         <div class="ctaRow">
+          <!-- оставила ghost минималистичным -->
           <a class="ghost" href="#collection">Смотреть коллекцию</a>
-          <a class="ghost" href="#contacts">Написать в Telegram</a>
+
+          <!-- Telegram кликабельный и ведёт в аккаунт -->
+          <a class="ghost" href="https://t.me/doggy_yoggy_vrn" target="_blank" rel="noopener">
+            Написать в Telegram
+          </a>
         </div>
 
         <div class="heroMeta" style="margin-top:26px">
@@ -409,12 +424,6 @@
       </div>
     </div>
   </section>
-  <div class="stack">
-    <h2>Коллекция</h2>
-    <p>Описание бренда</p>
-    <a class="btn" href="#">Каталог</a>
-  </div>
-</section>
 
   <section id="collection">
     <div class="secHead">
@@ -451,7 +460,8 @@
         <div class="mini">Ощущение бренда</div>
         <p>Много воздуха, тёплый свет, минимальный текст, крупный серриф и мягкий затемнённый hero — ровно как на твоём постере.</p>
       </div>
-      <a class="btn" href="#contacts">Предзаказ</a>
+      <!-- тут можно золото, чтобы акцентировать действие -->
+      <a class="btn btn-gold" href="#contacts">Предзаказ</a>
     </div>
   </section>
 
@@ -474,11 +484,13 @@
     <div class="banner">
       <div>
         <div class="mini">Связаться</div>
-        <p>https://t.me/doggy_yoggy_vrn</p>
+        <p style="margin:0;color:rgba(27,22,19,.70);line-height:1.55">
+          Telegram: <a href="https://t.me/doggy_yoggy_vrn" target="_blank" rel="noopener">t.me/doggy_yoggy_vrn</a>
+        </p>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
         <a class="ghost" href="mailto:hello@dybrand.com">Email</a>
-        <a class="btn" href="#">Telegram</a>
+        <a class="btn btn-gold" href="https://t.me/doggy_yoggy_vrn" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
   </section>
