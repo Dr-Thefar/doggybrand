@@ -173,18 +173,16 @@
     }
 
     .dy{
-      font-family: var(--serif);
-      font-weight:600;
-      font-size: clamp(64px, 10vw, 140px);
-      letter-spacing: .06em;
-      line-height: .9;
-      margin: 0 0 18px;
-      text-transform:uppercase;
-      background: linear-gradient(110deg, #f6e7b2 0%, #d4a017 40%, #b88905 70%, #f6e7b2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 8px 30px rgba(0,0,0,.35);
-    }
+  font-family: var(--serif);
+  font-weight:600;
+  font-size: clamp(64px, 10vw, 140px);
+  letter-spacing: .06em;
+  line-height: .9;
+  margin: 0 0 18px;
+  text-transform:uppercase;
+  color: rgba(246,241,234,.92);
+  text-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
 
     .title{
       font-family: var(--serif);
@@ -229,7 +227,7 @@
       gap:10px;
       flex-wrap:wrap;
       justify-content:center;
-      margin-top: 22px;
+      margin-top: 56px; /* было 22px — станет ниже */
     }
 
     /* hero ghost buttons (как было) */
@@ -415,7 +413,7 @@
           </a>
         </div>
 
-        <div class="heroMeta" style="margin-top:26px">
+        <div class="heroMeta" style="margin-top:64px">
           <div class="metaLine">DY 2026</div>
           <div class="metaLine">ELVIUM GROUP PROJECT</div>
         </div>
