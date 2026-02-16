@@ -3,468 +3,402 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ATELIER — Brand</title>
-  <meta name="description" content="Капсульная одежда. Чистый силуэт. Тихий люкс." />
+  <title>DY — Soft Match Collection</title>
+  <meta name="description" content="Soft Match Collection — for her & her dog." />
 
-  <!-- Fonts (можешь заменить на свои) -->
+  <!-- Fonts: luxe serif + clean sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#fbfaf7;
-      --ink:#0f0f12;
-      --muted:#6f6b63;
-      --line:rgba(15,15,18,.10);
-      --card:#ffffffcc;
-      --shadow:0 20px 60px rgba(15,15,18,.10);
-      --r:22px;
-      --max:1200px;
+      --bg: #f6f1ea;
+      --ink: #1b1613;
+      --cream: #efe6dc;
+      --sand: #d8c8b8;
+      --line: rgba(27,22,19,.12);
+      --glass: rgba(246,241,234,.10);
+      --shadow: 0 22px 70px rgba(27,22,19,.20);
+      --r: 22px;
+      --max: 1160px;
+      --serif: "Cormorant Garamond", serif;
+      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      color:var(--ink);
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(210,184,141,.18) 0%, transparent 60%),
-        radial-gradient(900px 700px at 85% 20%, rgba(154,143,122,.12) 0%, transparent 60%),
-        var(--bg);
-      font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      letter-spacing:.1px;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: radial-gradient(900px 600px at 10% 0%, rgba(216,200,184,.35) 0%, transparent 55%),
+                  radial-gradient(900px 650px at 90% 10%, rgba(239,230,220,.55) 0%, transparent 55%),
+                  var(--bg);
     }
 
-    a{color:inherit; text-decoration:none}
+    a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
 
-    /* Top nav */
+    /* Topbar */
     header{
-      position:sticky; top:0; z-index:20;
+      position: sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(251,250,247,.92), rgba(251,250,247,.70));
-      border-bottom:1px solid var(--line);
+      background: linear-gradient(to bottom, rgba(246,241,234,.80), rgba(246,241,234,.55));
+      border-bottom: 1px solid var(--line);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
       height:72px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
     }
-    .brand{
-      font-family:"Playfair Display", serif;
-      font-size:20px;
-      letter-spacing:.22em;
+    .logo{
+      display:flex; align-items:center; gap:10px;
+      letter-spacing:.24em;
       text-transform:uppercase;
+      font-family: var(--serif);
+      font-weight:600;
+      font-size:18px;
     }
-    .menu{display:flex; gap:18px; align-items:center}
+    .menu{
+      display:flex; gap:18px; flex-wrap:wrap;
+      align-items:center; justify-content:flex-end;
+    }
     .menu a{
       font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
-      color:rgba(15,15,18,.78);
-      padding:10px 8px;
+      color: rgba(27,22,19,.74);
+      padding:10px 10px;
       border-radius:999px;
       transition: background .2s ease, color .2s ease;
     }
-    .menu a:hover{background: rgba(15,15,18,.06); color:rgba(15,15,18,.92)}
-
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
+    .menu a:hover{background: rgba(27,22,19,.06); color: rgba(27,22,19,.90)}
+    .btn{
+      border:1px solid rgba(246,241,234,.55);
+      background: rgba(27,22,19,.75);
+      color: rgba(246,241,234,.92);
       padding:10px 14px;
-      border:1px solid var(--line);
       border-radius:999px;
-      background: rgba(255,255,255,.70);
-      box-shadow: 0 8px 30px rgba(15,15,18,.06);
       font-size:12px;
-      letter-spacing:.14em;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      color:rgba(15,15,18,.80);
+      transition: transform .18s ease, background .18s ease;
+      white-space:nowrap;
     }
-    .dot{width:8px;height:8px;border-radius:50%; background:rgba(15,15,18,.55)}
+    .btn:hover{transform: translateY(-1px); background: rgba(27,22,19,.85)}
 
     /* Hero */
     .hero{
-      padding:64px 0 34px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:26px;
-      align-items:end;
-    }
-    .kicker{
-      display:inline-flex; gap:10px; align-items:center;
-      font-size:12px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:14px;
-    }
-    h1{
-      margin:0 0 12px;
-      font-family:"Playfair Display", serif;
-      font-weight:600;
-      font-size:56px;
-      line-height:1.02;
-      letter-spacing:-.02em;
-    }
-    .sub{
-      margin:0;
-      max-width:52ch;
-      color:rgba(15,15,18,.74);
-      font-size:16px;
-      line-height:1.6;
-    }
-    .ctaRow{
       margin-top:22px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .btn{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:12px 16px;
-      font-size:12px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      background: rgba(255,255,255,.78);
-      transition: transform .18s ease, background .18s ease;
-      cursor:pointer;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.92)}
-    .btn.primary{
-      background: var(--ink);
-      color: var(--bg);
-      border-color: rgba(15,15,18,.85);
-      box-shadow: 0 18px 50px rgba(15,15,18,.18);
-    }
-    .btn.primary:hover{transform: translateY(-1px)}
-    .micro{
-      font-size:12px;
-      color:rgba(15,15,18,.60);
-      letter-spacing:.02em;
+      border-radius: clamp(18px, 2vw, 28px);
+      overflow:hidden;
+      border: 1px solid rgba(27,22,19,.10);
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 78vh;
+      background: #1a1412;
     }
 
-    /* Editorial panels */
-    .panel{
-      position:relative;
-      border-radius:var(--r);
-      overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow: var(--shadow);
-      background: #fff;
-      min-height: 460px;
+    /* Put your image here: assets/hero.jpg */
+    .heroImg{
+      position:absolute; inset:0;
+      background-image: url("assets/hero.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.98) contrast(1.02);
+      transform: scale(1.02);
     }
-    .panel::before{
-      content:"";
+
+    /* Dark soft overlay like in your poster */
+    .heroShade{
       position:absolute; inset:0;
       background:
-        radial-gradient(1200px 500px at 30% 20%, rgba(210,184,141,.22), transparent 55%),
-        radial-gradient(900px 600px at 70% 30%, rgba(15,15,18,.08), transparent 60%),
-        linear-gradient(135deg, rgba(255,255,255,1), rgba(250,248,244,1));
-    }
-    .panelInner{
-      position:absolute; inset:0;
-      display:flex; flex-direction:column;
-      justify-content:space-between;
-      padding:22px;
-    }
-    .panelTop{
-      display:flex; justify-content:space-between; gap:14px; align-items:flex-start;
-    }
-    .tag{
-      display:inline-flex;
-      padding:10px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.72);
-      border:1px solid var(--line);
-      font-size:11px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:rgba(15,15,18,.74);
-    }
-    .panelTitle{
-      font-family:"Playfair Display", serif;
-      font-size:22px;
-      line-height:1.15;
-      margin:0;
-      max-width:18ch;
-    }
-    .panelBottom{
-      display:flex; justify-content:space-between; align-items:end; gap:14px;
-    }
-    .panelNote{
-      color:rgba(15,15,18,.66);
-      font-size:13px;
-      line-height:1.55;
-      max-width:42ch;
-      margin:0;
+        radial-gradient(900px 600px at 30% 10%, rgba(0,0,0,.25) 0%, transparent 55%),
+        linear-gradient(to bottom, rgba(0,0,0,.36), rgba(0,0,0,.58));
     }
 
-    /* Collection */
-    section{padding:22px 0 64px}
-    .sectionHead{
+    /* Centered typography block */
+    .heroContent{
+      position:relative;
+      min-height: 78vh;
+      display:grid;
+      place-items:center;
+      padding: 38px 18px;
+      text-align:center;
+      color: rgba(246,241,234,.92);
+    }
+
+    .dy{
+      font-family: var(--serif);
+      font-weight:600;
+      font-size: clamp(64px, 10vw, 140px);
+      letter-spacing: .06em;
+      line-height: .9;
+      margin: 0 0 18px;
+      text-transform:uppercase;
+      text-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .title{
+      font-family: var(--serif);
+      font-weight:500;
+      font-size: clamp(26px, 3.4vw, 48px);
+      letter-spacing: .12em;
+      text-transform:uppercase;
+      margin: 0 0 12px;
+      color: rgba(246,241,234,.88);
+    }
+
+    .subtitle{
+      font-family: var(--sans);
+      font-weight:300;
+      font-size: 12px;
+      letter-spacing: .38em;
+      text-transform:uppercase;
+      color: rgba(246,241,234,.80);
+      margin: 0 0 22px;
+    }
+
+    .heroMeta{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:center;
+      margin-top: 6px;
+      opacity:.95;
+    }
+    .metaLine{
+      font-size: 11px;
+      letter-spacing: .34em;
+      text-transform:uppercase;
+      color: rgba(246,241,234,.70);
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top: 22px;
+    }
+    .ghost{
+      border: 1px solid rgba(246,241,234,.55);
+      background: rgba(246,241,234,.10);
+      color: rgba(246,241,234,.90);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .ghost:hover{transform: translateY(-1px); background: rgba(246,241,234,.16)}
+
+    /* Sections */
+    section{padding: 44px 0}
+    .secHead{
       display:flex; align-items:end; justify-content:space-between; gap:18px;
-      padding-top:10px;
+      margin-bottom: 14px;
     }
     .h2{
-      font-family:"Playfair Display", serif;
-      font-size:30px;
       margin:0;
-      letter-spacing:-.01em;
+      font-family: var(--serif);
+      font-weight:600;
+      font-size: 34px;
+      letter-spacing: .02em;
     }
-    .filter{
-      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
-    }
-    .chip{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.68);
-      border-radius:999px;
-      padding:10px 12px;
-      font-size:11px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:rgba(15,15,18,.72);
-      cursor:pointer;
-      transition: background .2s ease, transform .18s ease;
-      user-select:none;
-    }
-    .chip:hover{transform: translateY(-1px); background: rgba(255,255,255,.9)}
-    .chip.active{
-      background: var(--ink);
-      color: var(--bg);
-      border-color: rgba(15,15,18,.85);
+    .hint{
+      margin:0;
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(27,22,19,.58);
     }
 
     .grid{
-      margin-top:18px;
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+      gap: 14px;
     }
+
     .card{
-      border:1px solid var(--line);
-      border-radius:18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 18px;
       overflow:hidden;
-      background: rgba(255,255,255,.78);
-      box-shadow: 0 14px 40px rgba(15,15,18,.06);
-      transform: translateY(0);
-      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 16px 50px rgba(27,22,19,.10);
     }
-    .card:hover{transform: translateY(-2px); box-shadow: 0 22px 60px rgba(15,15,18,.10)}
-    .img{
+    .ph{
       aspect-ratio: 4/5;
       background:
-        radial-gradient(600px 300px at 40% 20%, rgba(210,184,141,.25), transparent 60%),
-        linear-gradient(135deg, rgba(15,15,18,.06), rgba(15,15,18,.02));
+        radial-gradient(500px 280px at 30% 20%, rgba(216,200,184,.60), transparent 65%),
+        linear-gradient(135deg, rgba(27,22,19,.06), rgba(27,22,19,.02));
     }
-    .cardBody{padding:14px}
+    .cardBody{padding: 14px}
     .name{
       margin:0 0 6px;
-      font-size:13px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:rgba(15,15,18,.86);
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(27,22,19,.85);
     }
-    .meta{
+    .row{
       display:flex; justify-content:space-between; gap:10px;
-      font-size:12px;
-      color:rgba(15,15,18,.62);
+      font-size: 12px;
+      color: rgba(27,22,19,.60);
     }
 
-    /* Footer */
-    footer{
-      padding:36px 0 54px;
-      border-top:1px solid var(--line);
-      color:rgba(15,15,18,.65);
-      font-size:12px;
-    }
-    .foot{
-      display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    .banner{
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      background: linear-gradient(135deg, rgba(255,255,255,.65), rgba(239,230,220,.55));
+      padding: 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
       align-items:center;
     }
-    .links{display:flex; gap:14px; flex-wrap:wrap}
-    .links a{letter-spacing:.14em; text-transform:uppercase; font-size:11px}
+    .banner p{
+      margin:0;
+      color: rgba(27,22,19,.70);
+      line-height:1.55;
+      max-width: 70ch;
+    }
+    .banner .mini{
+      font-size: 11px;
+      letter-spacing: .30em;
+      text-transform: uppercase;
+      color: rgba(27,22,19,.58);
+      margin-bottom:6px;
+    }
 
-    /* Small */
-    @media (max-width: 960px){
-      .hero{grid-template-columns:1fr; padding-top:42px}
-      h1{font-size:44px}
-      .panel{min-height: 420px}
+    footer{
+      padding: 30px 0 50px;
+      border-top: 1px solid var(--line);
+      color: rgba(27,22,19,.60);
+      font-size: 12px;
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .foot a{letter-spacing:.18em; text-transform:uppercase; font-size:11px}
+
+    @media (max-width: 980px){
       .grid{grid-template-columns: repeat(2, 1fr)}
+      .hero{min-height: 72vh}
+      .heroContent{min-height: 72vh}
     }
     @media (max-width: 560px){
-      h1{font-size:36px}
       .grid{grid-template-columns: 1fr}
+      .menu{display:none}
     }
-
-    /* Subtle reveal */
-    .reveal{opacity:0; transform: translateY(10px); transition: opacity .7s ease, transform .7s ease}
-    .reveal.on{opacity:1; transform: translateY(0)}
   </style>
 </head>
 
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">ATELIER</a>
-
+    <a class="logo" href="#top">DY</a>
     <nav class="menu" aria-label="Навигация">
       <a href="#collection">Коллекция</a>
-      <a href="#story">О бренде</a>
+      <a href="#about">О бренде</a>
       <a href="#contacts">Контакты</a>
     </nav>
-
-    <a class="pill" href="#contacts" aria-label="Открыть контакты">
-      <span class="dot"></span> Shop
-    </a>
+    <a class="btn" href="#contacts">Заказать</a>
   </div>
 </header>
 
 <main id="top" class="wrap">
-  <section class="hero">
-    <div class="reveal">
-      <div class="kicker"><span class="dot"></span> New drop • SS/26</div>
-      <h1>Тихий люкс.<br>Чистый силуэт.</h1>
-      <p class="sub">
-        Минималистичная капсула на каждый день. Акцент на посадку, фактуры и ощущение “дорого без шума”.
-      </p>
+  <section class="hero" aria-label="Hero">
+    <div class="heroImg"></div>
+    <div class="heroShade"></div>
 
-      <div class="ctaRow">
-        <button class="btn primary" onclick="document.querySelector('#collection').scrollIntoView({behavior:'smooth'})">
-          Смотреть коллекцию
-        </button>
-        <button class="btn" onclick="document.querySelector('#contacts').scrollIntoView({behavior:'smooth'})">
-          Связаться
-        </button>
-        <span class="micro">Доставка • Возврат 14 дней • Размеры XS–XL</span>
-      </div>
-    </div>
+    <div class="heroContent">
+      <div>
+        <h1 class="dy">DY</h1>
+        <h2 class="title">SOFT MATCH<br>COLLECTION</h2>
+        <p class="subtitle">FOR HER & HER DOG</p>
 
-    <div class="panel reveal" aria-label="Редакционный блок">
-      <div class="panelInner">
-        <div class="panelTop">
-          <span class="tag">Editorial</span>
-          <h3 class="panelTitle">Лендинг как модный журнал.</h3>
+        <div class="ctaRow">
+          <a class="ghost" href="#collection">Смотреть коллекцию</a>
+          <a class="ghost" href="#contacts">Написать в Telegram</a>
         </div>
-        <div class="panelBottom">
-          <p class="panelNote">
-            Здесь вместо фото — “плейсхолдер”. Подставь свои снимки (или кампейн-видео) — и сайт станет максимально похож по ощущению.
-          </p>
-          <span class="tag">Lookbook</span>
+
+        <div class="heroMeta" style="margin-top:26px">
+          <div class="metaLine">DY 2026</div>
+          <div class="metaLine">ELVIUM GROUP PROJECT</div>
         </div>
       </div>
     </div>
   </section>
 
   <section id="collection">
-    <div class="sectionHead reveal">
-      <h2 class="h2">Коллекция</h2>
-      <div class="filter" role="tablist" aria-label="Фильтры">
-        <span class="chip active" data-filter="all" role="tab" aria-selected="true">Все</span>
-        <span class="chip" data-filter="tops" role="tab">Топы</span>
-        <span class="chip" data-filter="outer" role="tab">Верхняя</span>
-        <span class="chip" data-filter="bottoms" role="tab">Низ</span>
-      </div>
+    <div class="secHead">
+      <h3 class="h2">Коллекция</h3>
+      <p class="hint">Capsule • Neutral • Soft</p>
     </div>
 
-    <div class="grid" id="grid">
-      <article class="card reveal" data-cat="tops">
-        <div class="img"></div>
+    <div class="grid">
+      <article class="card">
+        <div class="ph"></div>
         <div class="cardBody">
-          <p class="name">Top “Line”</p>
-          <div class="meta"><span>Хлопок</span><span>€ 69</span></div>
+          <p class="name">Hoodie “Soft”</p>
+          <div class="row"><span>Beige</span><span>₽ 6 900</span></div>
         </div>
       </article>
+      <article class="card">
+        <div class="ph"></div>
+        <div class="cardBody">
+          <p class="name">Joggers “Calm”</p>
+          <div class="row"><span>Sand</span><span>₽ 5 900</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph"></div>
+        <div class="cardBody">
+          <p class="name">Zip “Match”</p>
+          <div class="row"><span>Cream</span><span>₽ 7 900</span></div>
+        </div>
+      </article>
+    </div>
 
-      <article class="card reveal" data-cat="outer">
-        <div class="img"></div>
-        <div class="cardBody">
-          <p class="name">Coat “Calm”</p>
-          <div class="meta"><span>Шерсть</span><span>€ 390</span></div>
-        </div>
-      </article>
-
-      <article class="card reveal" data-cat="bottoms">
-        <div class="img"></div>
-        <div class="cardBody">
-          <p class="name">Pants “Form”</p>
-          <div class="meta"><span>Вискоза</span><span>€ 120</span></div>
-        </div>
-      </article>
-
-      <article class="card reveal" data-cat="tops">
-        <div class="img"></div>
-        <div class="cardBody">
-          <p class="name">Shirt “Air”</p>
-          <div class="meta"><span>Лён</span><span>€ 110</span></div>
-        </div>
-      </article>
-
-      <article class="card reveal" data-cat="outer">
-        <div class="img"></div>
-        <div class="cardBody">
-          <p class="name">Jacket “Soft”</p>
-          <div class="meta"><span>Деним</span><span>€ 180</span></div>
-        </div>
-      </article>
-
-      <article class="card reveal" data-cat="bottoms">
-        <div class="img"></div>
-        <div class="cardBody">
-          <p class="name">Skirt “Silence”</p>
-          <div class="meta"><span>Сатин</span><span>€ 95</span></div>
-        </div>
-      </article>
+    <div class="banner">
+      <div>
+        <div class="mini">Ощущение бренда</div>
+        <p>Много воздуха, тёплый свет, минимальный текст, крупный серриф и мягкий затемнённый hero — ровно как на твоём постере.</p>
+      </div>
+      <a class="btn" href="#contacts">Предзаказ</a>
     </div>
   </section>
 
-  <section id="story" class="reveal">
-    <div class="panel" style="min-height:260px">
-      <div class="panelInner" style="gap:14px">
-        <div class="panelTop">
-          <span class="tag">Brand</span>
-          <h3 class="panelTitle">История и ценности</h3>
-        </div>
-        <p class="panelNote" style="max-width:70ch">
-          Пиши коротко: 2–3 предложения о стиле, тканях, производстве, подходе к посадке.
-          В “jacquemus-вайбе” важно: лаконично, уверенно, без длинных полотен.
-        </p>
-        <div class="panelBottom">
-          <span class="tag">Made with care</span>
-          <span class="tag">Small drops</span>
-        </div>
-      </div>
+  <section id="about">
+    <div class="secHead">
+      <h3 class="h2">О бренде</h3>
+      <p class="hint">Minimal • Premium</p>
     </div>
+    <p style="margin:0;color:rgba(27,22,19,.70);line-height:1.75;max-width:78ch">
+      Сюда 2–3 коротких предложения: про ткани, посадку и идею. В этом стиле важно: кратко, спокойно, уверенно.
+    </p>
   </section>
 
-  <section id="contacts" class="reveal">
-    <div class="sectionHead">
-      <h2 class="h2">Контакты</h2>
-      <span class="tag">Support</span>
+  <section id="contacts">
+    <div class="secHead">
+      <h3 class="h2">Контакты</h3>
+      <p class="hint">DM / Email</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1.2fr .8fr; margin-top:16px">
-      <div class="card" style="padding:16px">
-        <p class="name" style="margin-bottom:10px">Написать</p>
-        <p class="panelNote" style="margin-top:0">
-          Заменишь ссылки на свои: Instagram / Telegram / Email.
-        </p>
-
-        <div class="ctaRow" style="margin-top:14px">
-          <a class="btn primary" href="#" onclick="alert('Поставь сюда ссылку на Telegram/WhatsApp'); return false;">Telegram</a>
-          <a class="btn" href="mailto:hello@atelier.com">Email</a>
-          <a class="btn" href="#" onclick="alert('Поставь сюда ссылку на Instagram'); return false;">Instagram</a>
-        </div>
+    <div class="banner">
+      <div>
+        <div class="mini">Связаться</div>
+        <p>Поставь свои ссылки на Telegram/Instagram. Кнопка ниже может вести на чат или на форму заказа.</p>
       </div>
-
-      <div class="card" style="padding:16px">
-        <p class="name" style="margin-bottom:10px">Инфо</p>
-        <div class="meta" style="flex-direction:column; gap:8px">
-          <span>Доставка: 1–5 дней</span>
-          <span>Возврат: 14 дней</span>
-          <span>Оплата: карты / перевод</span>
-        </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
+        <a class="ghost" href="mailto:hello@dybrand.com">Email</a>
+        <a class="btn" href="#">Telegram</a>
       </div>
     </div>
   </section>
@@ -472,40 +406,17 @@
 
 <footer>
   <div class="wrap foot">
-    <div>© <span id="y"></span> ATELIER. All rights reserved.</div>
-    <div class="links">
-      <a href="#collection">Коллекция</a>
-      <a href="#story">О бренде</a>
+    <div>© <span id="y"></span> DY</div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
       <a href="#top">Наверх</a>
+      <a href="#collection">Коллекция</a>
+      <a href="#contacts">Контакты</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Year
   document.getElementById("y").textContent = new Date().getFullYear();
-
-  // Filter
-  const chips = document.querySelectorAll(".chip");
-  const items = document.querySelectorAll("#grid .card");
-
-  chips.forEach(chip => chip.addEventListener("click", () => {
-    chips.forEach(c => c.classList.remove("active"));
-    chip.classList.add("active");
-
-    const f = chip.dataset.filter;
-    items.forEach(it => {
-      const ok = (f === "all") || (it.dataset.cat === f);
-      it.style.display = ok ? "" : "none";
-    });
-  }));
-
-  // Reveal on scroll
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("on"); });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
