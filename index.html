@@ -6,7 +6,6 @@
   <title>DY — Soft Match Collection</title>
   <meta name="description" content="Soft Match Collection — for her & her dog." />
 
-  <!-- Fonts: luxe serif + clean sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,19 +17,16 @@
       --cream: #efe6dc;
       --sand: #d8c8b8;
       --line: rgba(27,22,19,.12);
-      --glass: rgba(246,241,234,.10);
       --shadow: 0 22px 70px rgba(27,22,19,.20);
       --r: 22px;
       --max: 1160px;
       --serif: "Cormorant Garamond", serif;
       --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
-      /* GOLD SYSTEM */
       --gold: #D4A017;
       --goldDark: #B88905;
       --goldLight: #F0D97E;
       --goldSoft: rgba(212,160,23,.28);
-      --radius: 18px;
     }
 
     *{box-sizing:border-box}
@@ -39,14 +35,15 @@
       margin:0;
       font-family: var(--sans);
       color: var(--ink);
-      background: radial-gradient(900px 600px at 10% 0%, rgba(216,200,184,.35) 0%, transparent 55%),
-                  radial-gradient(900px 650px at 90% 10%, rgba(239,230,220,.55) 0%, transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(900px 600px at 10% 0%, rgba(216,200,184,.35) 0%, transparent 55%),
+        radial-gradient(900px 650px at 90% 10%, rgba(239,230,220,.55) 0%, transparent 55%),
+        var(--bg);
     }
 
     a{color:inherit;text-decoration:none}
 
-    /* тонкая золотая типографика для ссылок (минимально) */
+    /* subtle premium underline */
     a{
       text-decoration-thickness: 1px;
       text-underline-offset: 6px;
@@ -60,7 +57,7 @@
 
     .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
 
-    /* Topbar */
+    /* Header */
     header{
       position: sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
@@ -92,18 +89,18 @@
       padding:10px 10px;
       border-radius:999px;
       transition: background .2s ease, color .2s ease;
-      text-decoration: none;
+      text-decoration:none;
     }
     .menu a:hover{background: rgba(27,22,19,.06); color: rgba(27,22,19,.90)}
 
-    /* базовая кнопка */
+    /* Buttons */
     .btn{
       border:1px solid rgba(246,241,234,.55);
       background: rgba(27,22,19,.75);
       color: rgba(246,241,234,.92);
       padding:10px 14px;
       border-radius:999px;
-      font-size:14px;
+      font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
       white-space:nowrap;
@@ -111,8 +108,6 @@
       align-items:center;
       justify-content:center;
       gap:8px;
-
-      /* микро-анимации */
       transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, background .18s ease;
       will-change: transform;
       text-decoration:none;
@@ -127,22 +122,17 @@
       box-shadow: 0 8px 18px rgba(0,0,0,.10);
     }
 
-    /* ПРЕМИАЛЬНАЯ ЗОЛОТАЯ КНОПКА (по классу, ничего не ломает) */
-  .btn-gold {
-  background: linear-gradient(135deg, #e7d18a, #c49a22);
-  color: #111 !important;
-  border: 1px solid rgba(184,137,5,.6) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.4),
-    0 12px 30px rgba(0,0,0,.25);
-  letter-spacing: .2em;
-      }
-.btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.5),
-    0 18px 40px rgba(0,0,0,.3);
-       }
+    .btn-gold{
+      background: linear-gradient(135deg, #e7d18a, #c49a22);
+      color: #111 !important;
+      border: 1px solid rgba(184,137,5,.6) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 12px 30px rgba(0,0,0,.25);
+      letter-spacing: .2em;
+    }
+    .btn-gold:hover{
+      transform: translateY(-2px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 18px 40px rgba(0,0,0,.30);
+    }
 
     /* Hero */
     .hero{
@@ -156,17 +146,15 @@
       background: #1a1412;
     }
 
-    /* Put your image here: assets/hero.jpg */
-   .heroImg{
-  position:absolute; inset:0;
-  background-image: url("hero.jpg"); /* или assets/hero.jpg если перенесёшь */
-  background-size: 115%;
-  background-position: center 20%;   /* поднимаем кадр вверх */
-  filter: saturate(.98) contrast(1.02);
-  transform: none;                   /* убрали увеличение */
-}
+    .heroImg{
+      position:absolute; inset:0;
+      background-image: url("hero.jpg");
+      background-size: 115%;
+      background-position: center 20%;
+      filter: saturate(.98) contrast(1.02);
+      transform:none;
+    }
 
-    /* Dark soft overlay like in your poster */
     .heroShade{
       position:absolute; inset:0;
       background:
@@ -174,7 +162,6 @@
         linear-gradient(to bottom, rgba(0,0,0,.36), rgba(0,0,0,.58));
     }
 
-    /* Centered typography block */
     .heroContent{
       position:relative;
       min-height: 78vh;
@@ -185,21 +172,18 @@
       color: rgba(246,241,234,.92);
     }
 
-   .dy {
-  background: linear-gradient(
-    110deg,
-    #f6e7b2 0%,
-    #d4a017 40%,
-    #b88905 70%,
-    #f6e7b2 100%
-    }
-    -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 8px 30px rgba(0,0,0,.35);
-    }
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 8px 30px rgba(0,0,0,.35);
+    .dy{
+      font-family: var(--serif);
+      font-weight:600;
+      font-size: clamp(64px, 10vw, 140px);
+      letter-spacing: .06em;
+      line-height: .9;
+      margin: 0 0 18px;
+      text-transform:uppercase;
+      background: linear-gradient(110deg, #f6e7b2 0%, #d4a017 40%, #b88905 70%, #f6e7b2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 8px 30px rgba(0,0,0,.35);
     }
 
     .title{
@@ -210,6 +194,7 @@
       text-transform:uppercase;
       margin: 0 0 12px;
       color: rgba(246,241,234,.88);
+      text-shadow: 0 10px 26px rgba(0,0,0,.35);
     }
 
     .subtitle{
@@ -220,6 +205,7 @@
       text-transform:uppercase;
       color: rgba(246,241,234,.80);
       margin: 0 0 22px;
+      text-shadow: 0 10px 26px rgba(0,0,0,.35);
     }
 
     .heroMeta{
@@ -235,6 +221,7 @@
       letter-spacing: .34em;
       text-transform:uppercase;
       color: rgba(246,241,234,.70);
+      text-shadow: 0 10px 26px rgba(0,0,0,.35);
     }
 
     .ctaRow{
@@ -245,7 +232,7 @@
       margin-top: 22px;
     }
 
-    /* прозрачная кнопка в hero */
+    /* hero ghost buttons (как было) */
     .ghost{
       border: 1px solid rgba(246,241,234,.55);
       background: rgba(246,241,234,.10);
@@ -256,14 +243,13 @@
       letter-spacing: .18em;
       text-transform: uppercase;
       backdrop-filter: blur(10px);
-
       transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, background .18s ease;
       will-change: transform;
-      text-decoration:none;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
+      text-decoration:none;
     }
     .ghost:hover{
       transform: translateY(-2px);
@@ -275,21 +261,9 @@
       box-shadow: 0 8px 18px rgba(0,0,0,.12);
     }
 
-    /* Sections — больше воздуха */
+    /* Sections */
     section{padding: clamp(42px, 6vw, 90px) 0}
 
-    /* секционный заголовок с тонким золотым акцентом */
-    .h2, .title, .dy{
-      position: relative;
-    }
-    /* Акцент делаем только на секционные заголовки, чтобы не портить hero */
-    .h2::after {
-  background: linear-gradient(
-    90deg,
-    rgba(212,160,23,.8),
-    rgba(212,160,23,.2)
-  );
-}
     .secHead{
       display:flex; align-items:end; justify-content:space-between; gap:18px;
       margin-bottom: 14px;
@@ -300,7 +274,17 @@
       font-weight:600;
       font-size: 34px;
       letter-spacing: .02em;
+      position:relative;
     }
+    .h2::after{
+      content:"";
+      display:block;
+      width:56px;
+      height:2px;
+      margin-top:12px;
+      background: linear-gradient(90deg, rgba(212,160,23,.8), rgba(212,160,23,.0));
+    }
+
     .hint{
       margin:0;
       font-size: 12px;
@@ -315,22 +299,28 @@
       gap: 14px;
     }
 
-   .card {
-  position: relative;
-}
+    .card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: 0 16px 50px rgba(27,22,19,.10);
+      position:relative;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(120deg, rgba(212,160,23,.05), transparent 40%);
+      pointer-events:none;
+    }
 
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(212,160,23,.05),
-    transparent 40%
-  );
-  pointer-events: none;
-}
-
+    .ph{
+      aspect-ratio: 4/5;
+      background:
+        radial-gradient(500px 280px at 30% 20%, rgba(216,200,184,.60), transparent 65%),
+        linear-gradient(135deg, rgba(27,22,19,.06), rgba(27,22,19,.02));
+    }
     .cardBody{padding: 14px}
     .name{
       margin:0 0 6px;
@@ -391,20 +381,6 @@
       .grid{grid-template-columns: 1fr}
       .menu{display:none}
     }
-    .ctaRow a.ghost{
-  display:inline-flex !important;
-  align-items:center;
-  justify-content:center;
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(246,241,234,.55);
-  background: rgba(246,241,234,.10);
-  color: rgba(246,241,234,.92);
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
   </style>
 </head>
 
@@ -417,7 +393,6 @@
       <a href="#about">О бренде</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <!-- Золотая кнопка в шапке -->
     <a class="btn btn-gold" href="#contacts">Заказать</a>
   </div>
 </header>
@@ -433,15 +408,12 @@
         <h2 class="title">SOFT MATCH<br>COLLECTION</h2>
         <p class="subtitle">FOR HER & HER DOG</p>
 
-       <div class="ctaRow">
-  <a class="ghost" href="#collection">Смотреть коллекцию</a>
-
-  <a class="ghost btn-gold"
-     href="https://t.me/doggy_yoggy_vrn"
-     target="_blank" rel="noopener">
-    Написать в Telegram
-  </a>
-</div>
+        <div class="ctaRow">
+          <a class="ghost" href="#collection">Смотреть коллекцию</a>
+          <a class="ghost" href="https://t.me/doggy_yoggy_vrn" target="_blank" rel="noopener">
+            Написать в Telegram
+          </a>
+        </div>
 
         <div class="heroMeta" style="margin-top:26px">
           <div class="metaLine">DY 2026</div>
@@ -486,7 +458,6 @@
         <div class="mini">Ощущение бренда</div>
         <p>Много воздуха, тёплый свет, минимальный текст, крупный серриф и мягкий затемнённый hero — ровно как на твоём постере.</p>
       </div>
-      <!-- тут можно золото, чтобы акцентировать действие -->
       <a class="btn btn-gold" href="#contacts">Предзаказ</a>
     </div>
   </section>
