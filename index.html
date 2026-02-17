@@ -30,24 +30,24 @@
   margin: 0 auto;
 }
 
+/* РАМКА (контейнер с фото) */
 .hero{
   position: relative;
-  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow);
-  background: #000;
-  height: clamp(520px, 78vh, 760px);  /* НЕ огромная */
+  border-radius: 28px;
+  height: clamp(520px, 70vh, 760px);
 }
 
-/* фото */
+/* САМА КАРТИНКА — заполняет рамку полностью */
+.hero img,
 .heroMedia{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;            /* важное: не растягиваем */
-  object-position: 50% 35%;     /* чуть выше лица */
-  transform: scale(1.03);       /* лёгкий “fashion zoom” */
+  object-fit: cover;         /* заполняет, лишнее обрежет */
+  object-position: 50% 45%;  /* двигаем кадр (можешь менять) */
+  display: block;
 }
 
 /* мягкая затемнялка + виньетка (как в лукбуках) */
