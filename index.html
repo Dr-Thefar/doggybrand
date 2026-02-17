@@ -11,26 +11,151 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg: #f6f1ea;
-      --ink: #1b1613;
-      --cream: #efe6dc;
-      --sand: #d8c8b8;
-      --line: rgba(27,22,19,.12);
-      --shadow: 0 22px 70px rgba(27,22,19,.20);
-      --r: 22px;
-      --max: 1160px;
-      --serif: "Cormorant Garamond", serif;
-      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  :root{
+  --bg: #f6f1ea;
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.68);
+  --stroke: rgba(255,255,255,.28);
+  --shadow: 0 22px 60px rgba(0,0,0,.35);
+  --radius: 28px;
+}
 
-      --gold: #D4A017;
-      --goldDark: #B88905;
-      --goldLight: #F0D97E;
-      --goldSoft: rgba(212,160,23,.28);
-    }
+.page{
+  background: var(--bg);
+  padding: 28px;
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+.heroWrap{
+  max-width: 1180px;           /* “брендовая” ширина */
+  margin: 0 auto;
+}
+
+.hero{
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #000;
+  height: clamp(520px, 78vh, 760px);  /* НЕ огромная */
+}
+
+/* фото */
+.heroMedia{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* важное: не растягиваем */
+  object-position: 50% 35%;     /* чуть выше лица */
+  transform: scale(1.03);       /* лёгкий “fashion zoom” */
+}
+
+/* мягкая затемнялка + виньетка (как в лукбуках) */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(80% 80% at 50% 35%, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 70%, rgba(0,0,0,.72) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.35));
+  pointer-events:none;
+}
+
+/* контент */
+.heroContent{
+  position: relative;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: clamp(22px, 3.8vw, 44px);
+  text-align: center;
+}
+
+/* типографика “luxury” */
+.heroLogo{
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: .18em;
+  font-size: clamp(54px, 8.8vw, 96px);
+  line-height: .9;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.heroTitle{
+  margin-top: 14px;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: .12em;
+  font-size: clamp(20px, 3.1vw, 34px);
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.heroSub{
+  margin-top: 10px;
+  font-family: "Inter", system-ui, sans-serif;
+  letter-spacing: .26em;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* кнопки ниже (как ты просила) */
+.heroActions{
+  margin-top: clamp(28px, 6vh, 64px); /* чем больше экран — тем ниже */
+  display: inline-flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn{
+  appearance: none;
+  border: 1px solid var(--stroke);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.28);
+  border-color: rgba(255,255,255,.42);
+}
+
+.btn.primary{
+  background: rgba(255,255,255,.10);
+}
+
+/* низ hero */
+.heroFooter{
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+}
+
+/* адаптив */
+@media (max-width: 640px){
+  .page{ padding: 16px; }
+  .hero{ height: clamp(520px, 78vh, 680px); border-radius: 22px; }
+  .btn{ width: 100%; max-width: 320px; }
+  .heroActions{ gap: 10px; }
+}
     body{
       margin:0;
       font-family: var(--sans);
@@ -396,30 +521,31 @@
 </header>
 
 <main id="top" class="wrap">
-  <section class="hero" aria-label="Hero">
-    <div class="heroImg"></div>
-    <div class="heroShade"></div>
+  <div class="page">
+  <div class="heroWrap">
+    <section class="hero">
+      <img class="heroMedia" src="images/hero.jpg" alt="DY Soft Match" />
 
-    <div class="heroContent">
-      <div>
-        <h1 class="dy">DY</h1>
-        <h2 class="title">SOFT MATCH<br>COLLECTION</h2>
-        <p class="subtitle">FOR HER & HER DOG</p>
+      <div class="heroContent">
+        <div>
+          <div class="heroLogo">DY</div>
+          <div class="heroTitle">Soft Match Collection</div>
+          <div class="heroSub">For her & her dog</div>
 
-        <div class="ctaRow">
-          <a class="ghost" href="#collection">Смотреть коллекцию</a>
-          <a class="ghost" href="https://t.me/doggy_yoggy_vrn" target="_blank" rel="noopener">
-            Написать в Telegram
-          </a>
-        </div>
-
-        <div class="heroMeta" style="margin-top:84px">
-          <div class="metaLine">DY 2026</div>
-          <div class="metaLine">ELVIUM GROUP PROJECT</div>
+          <div class="heroActions">
+            <a class="btn primary" href="#collection">Смотреть коллекцию</a>
+            <a class="btn" href="https://t.me/yourusername">Написать в Telegram</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+
+      <div class="heroFooter">
+        <span>DY 2026</span>
+        <span>ELVIUM GROUP PROJECT</span>
+      </div>
+    </section>
+  </div>
+</div>
 
   <section id="collection">
     <div class="secHead">
